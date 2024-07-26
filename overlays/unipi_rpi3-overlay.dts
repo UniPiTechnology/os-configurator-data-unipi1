@@ -1,0 +1,25 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2835";
+
+	fragment@0 {
+		target = <&gpio>;
+		__overlay__ {
+			pwm_pins3: pwm_pins3 {
+				brcm,pins = <18>;
+				brcm,function = <2>; /* Alt5 */
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&pwm>;
+		frag0: __overlay__ {
+			assigned-clock-rates = <100000000>;
+			pinctrl-names = "default";
+			pinctrl-0 = <&pwm_pins3>;
+		};
+	};
+};
