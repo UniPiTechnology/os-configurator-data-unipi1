@@ -19,7 +19,7 @@ dtparam=i2c_arm=on
 dtoverlay=unipi_id
 EOF
 
-if [ -n "$USE_DS2482" ]; then
+if [ -n "$HAS_DS2482" ]; then
     echo "dtoverlay=ds2482"
 fi
 
